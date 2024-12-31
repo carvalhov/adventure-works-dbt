@@ -1,0 +1,63 @@
+version: 2
+
+sources:
+  - name: sales
+    database: adventure_works_raw_db
+    schema: sales
+    tables:
+      - name: countryregioncurrency
+        description: Stores currency codes assigned to regions or countries.
+
+      - name: creditcard
+        description: Details of credit cards used by customers.
+
+      - name: currency
+        description: Stores information about available currencies.
+
+      - name: currencyrate
+        description: Tracks exchange rates between different currencies over time.
+
+      - name: customer
+        description: Contains details about customers and their accounts.
+
+      - name: personcreditcard
+        description: Associates customers with their credit cards.
+
+      - name: salesorderdetail
+        description: Detailed information about items in sales orders.
+
+      - name: salesorderheader
+        description: Header-level details for sales orders, such as total amounts and dates.
+
+      - name: salesorderheadersalesreason
+        description: Associates sales orders with reasons for the sale.
+
+      - name: salesperson
+        description: Information about salespeople and their performance metrics.
+
+      - name: salespersonquotahistory
+        description: History of sales quotas assigned to salespeople.
+
+      - name: salesreason
+        description: Reasons or motivations for specific sales.
+
+      - name: salestaxrate
+        description: Details of tax rates applied to sales transactions.
+
+      - name: salesterritory
+        description: Information about different sales territories.
+
+      - name: salesterritoryhistory
+        description: History of changes to sales territories.
+
+      - name: shoppingcartitem
+        description: Details of items added to customers' shopping carts.
+
+      - name: specialoffer
+        description: Details of special offers available for products.
+
+      - name: specialofferproduct
+        description: Associates products with specific special offers.
+
+      - name: store
+        description: Information about physical or online stores associated with sales.

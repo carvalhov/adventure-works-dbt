@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: person
+    database: adventure_works_raw_db
+    schema: person
+    tables:
+      - name: address
+        description: Stores physical addresses of entities.
+
+      - name: addresstype
+        description: Contains types of addresses, such as home or business.
+
+      - name: businessentity
+        description: Centralized table for all entities, including people, vendors, and stores.
+
+      - name: businessentityaddress
+        description: Links business entities to their associated addresses.
+
+      - name: businessentitycontact
+        description: Links business entities to their contacts.
+
+      - name: contacttype
+        description: Contains types of contacts, such as sales or support representatives.
+
+      - name: countryregion
+        description: Stores information about countries or regions.
+
+      - name: emailaddress
+        description: Stores email addresses associated with people.
+
+      - name: password
+        description: Stores encrypted passwords for entities.
+
+      - name: person
+        description: Core table for personal information about individuals.
+
+      - name: personphone
+        description: Links people to their phone numbers.
+
+      - name: phonenumbertype
+        description: Contains types of phone numbers, such as mobile or home.
+
+      - name: stateprovince
+        description: Stores information about states or provinces within a country or region.

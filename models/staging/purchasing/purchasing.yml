@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: purchasing
+    database: adventure_works_raw_db
+    schema: purchasing
+    tables:
+      - name: productvendor
+        description: Contains information about products and their associated vendors.
+
+      - name: purchaseorderdetail
+        description: Detailed information about items in purchase orders, including product, quantity, and cost.
+
+      - name: purchaseorderheader
+        description: Header-level details for purchase orders, such as supplier and order dates.
+
+      - name: shipmethod
+        description: Stores shipping methods and related details.
+
+      - name: vendor
+        description: List of vendors and their respective details.

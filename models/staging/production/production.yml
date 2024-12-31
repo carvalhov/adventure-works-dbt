@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: production
+    database: adventure_works_raw_db
+    schema: production
+    tables:
+      - name: billofmaterials
+        description: Contains information about components required to produce a product.
+
+      - name: productcosthistory
+        description: Tracks the historical cost information for products.
+
+      - name: productlistpricehistory
+        description: Tracks the historical list prices for products.
+
+      - name: scrapreason
+        description: Stores reasons for scrapping materials or products during production.
+
+      - name: transactionhistory
+        description: Records inventory transactions, including adjustments, receipts, and shipments.
+
+      - name: transactionhistoryarchive
+        description: Archived inventory transaction records for historical reference.
+
+      - name: workorder
+        description: Tracks production orders and their statuses.
+
+      - name: workorderrouting
+        description: Details the sequence of operations required to complete a production work order.
