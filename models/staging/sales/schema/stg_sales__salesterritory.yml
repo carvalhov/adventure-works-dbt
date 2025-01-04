@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_sales__sales_territory
+    description: Lookup table for sales territories, including sales and cost details by year and region.
+    columns:
+      - name: pk_territory_id
+        description: Primary key for SalesTerritory records.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: territory_name
+        description: Sales territory description.
+
+      - name: fk_country_region_code
+        description: ISO standard country or region code. Foreign key to CountryRegion.CountryRegionCode.
+
+      - name: territory_group
+        description: Geographic area to which the sales territory belongs.
+
+      - name: sales_ytd
+        description: Sales in the territory year to date.
+
+      - name: sales_last_year
+        description: Sales in the territory the previous year.
+
+      - name: cost_ytd
+        description: Business costs in the territory year to date.
+
+      - name: cost_last_year
+        description: Business costs in the territory the previous year.
+
+      - name: row_guid
+        description: Unique identifier (ROWGUIDCOL) for the record, used to support merge replication.
+
+      - name: dt_modified_at
+        description: Date and time the record was last updated.
