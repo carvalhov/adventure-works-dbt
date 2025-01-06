@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_person__person
+    description: Table with person records.
+    columns:
+      - name: pk_person_business_entity
+        description: Primary key for Person records. Foreign key to BusinessEntity.BusinessEntityID.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: person_type
+        description: >
+                    Primary type of person - SC = Store Contact, IN = Individual (retail) customer,
+                    SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact.
+        data_tests:
+          - accepted_values:
+              values: ['Store Contact', 'Individual (retail) customer', 'Sales person', 'Employee (non-sales)', 'Vendor contact', 'General contact']
+
+      - name: is_name_style
+        description: 0 = Western name style (FirstName, LastName). 1 = Eastern name style (LastName, FirstName).
+
+      - name: title
+        description: Courtesy title of the person. For example, Mr. or Ms.
+
+      - name: first_name
+        description: First name of the person.
+
+      - name: middle_name
+        description: Middle name or initial of the person.
+
+      - name: last_name
+        description: Last name of the person.
+
+      - name: person_name
+        description: concat of all components of people names considering if the name is Eastern or Western.
+
+      - name: suffix
+        description: Surname suffix of the person. For example, Sr. or Jr.
+
+      - name: email_promotion
+        description: Indicates if the person wishes to receive email promotions - 0 = Does not wish to receive, 1 = Wishes to receive, 2 = Wishes to receive from partners.
+
+      - name: additional_contact_info
+        description: Additional contact information about the person stored in XML format.
+
+      - name: demographics
+        description: Personal information such as hobbies and income collected from online shoppers for sales analysis. Stored in XML format.
+
+      - name: row_guid
+        description: Unique identifier (ROWGUIDCOL) for the record, used for merge replication.
+
+      - name: dt_modified_at
+        description: Date and time the record was last updated.

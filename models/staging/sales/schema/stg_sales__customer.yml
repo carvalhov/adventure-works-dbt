@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_sales__customer
+    description: Table with customer information, including references to Person, Store, and SalesTerritory tables.
+    columns:
+      - name: pk_customer_id
+        description: Primary key for Customer records.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: fk_person_id
+        description: Foreign key to Person.BusinessEntityID. Some cases are null in the column.
+
+      - name: fk_store_id
+        description: Foreign key to Store.BusinessEntityID.
+
+      - name: fk_territory_id
+        description: ID of the territory in which the customer is located. Foreign key to SalesTerritory.SalesTerritoryID.
+
+      - name: row_guid
+        description: Unique identifier (ROWGUIDCOL) for the record, used to support merge replication.
+
+      - name: dt_modified_at
+        description: Date and time the record was last updated.

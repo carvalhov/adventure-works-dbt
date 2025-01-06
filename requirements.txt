@@ -1,1 +1,2 @@
 dbt-snowflake==1.8.1
+dbt-core==1.8.1
