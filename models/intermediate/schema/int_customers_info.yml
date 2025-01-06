@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: int_sales__customer_data
+    description: Intermediate table that combines customer data with related information from person, store, and territory tables.
+    columns:
+      - name: pk_customer_id
+        description: Primary key for the customer records.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: fk_person_id
+        description: Foreign key referencing the person associated with the customer.
+
+      - name: fk_store_id
+        description: Foreign key referencing the store associated with the customer.
+
+      - name: fk_territory_id
+        description: Foreign key referencing the territory associated with the customer.
+
+      - name: row_guid
+        description: Unique identifier (ROWGUIDCOL) for the customer record, used for replication.
+
+      - name: dt_modified_at
+        description: Date and time the customer record was last updated.
+
+      - name: person_type
+        description: Type of person associated with the customer (e.g., SC = Store Contact, IN = Individual).
+
+      - name: person_name
+        description: Full name of the person associated with the customer.
+
+      - name: email_promotion
+        description: Indicates the customer's preference for receiving email promotions (0 = None, 1 = Adventure Works only, 2 = Adventure Works and partners).
+
+      - name: store_name
+        description: Name of the store associated with the customer.
+
+      - name: fk_sales_person_id
+        description: Foreign key referencing the sales person assigned to the store.
+
+      - name: territory_name
+        description: Name of the sales territory associated with the customer.
+
+      - name: territory_group
+        description: Geographic area to which the sales territory belongs.

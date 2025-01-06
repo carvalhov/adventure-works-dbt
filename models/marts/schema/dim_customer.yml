@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: Final mart summarizing customer data with related person, store, and territory details for reporting purposes.
+    columns:
+      - name: pk_customer_id
+        description: Primary key for the customer records. Unique identifier for each customer.
+
+      - name: fk_person_id
+        description: Foreign key referencing the person associated with the customer.
+
+      - name: fk_store_id
+        description: Foreign key referencing the store associated with the customer.
+
+      - name: fk_territory_id
+        description: Foreign key referencing the sales territory associated with the customer.
+
+      - name: fk_sales_person_id
+        description: Foreign key referencing the sales person assigned to the store associated with the customer.
+
+      - name: dt_modified_at
+        description: Date and time the customer record was last updated.
+
+      - name: person_type
+        description: Type of person associated with the customer (e.g., SC = Store Contact, IN = Individual).
+
+      - name: person_name
+        description: Full name of the person associated with the customer.
+
+      - name: email_promotion
+        description: Indicates the customer's preference for receiving email promotions (0 = None, 1 = Adventure Works only, 2 = Adventure Works and partners).
+
+      - name: store_name
+        description: Name of the store associated with the customer.
+
+      - name: territory_name
+        description: Name of the sales territory associated with the customer.
+
+      - name: territory_group
+        description: Geographic area to which the sales territory belongs.
