@@ -6,7 +6,7 @@ models:
     columns:
       - name: pk_business_entity
         description: Primary key for Vendor records. Foreign key to BusinessEntity.BusinessEntityID.
-        data-tests:
+        data_tests:
           - unique
           - not_null
 
