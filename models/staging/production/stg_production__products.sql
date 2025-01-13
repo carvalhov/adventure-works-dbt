@@ -18,12 +18,12 @@ with
             , cast(Color as string) as product_color
             , cast(SafetyStockLevel as smallint) as safety_stock_level
             , cast(ReorderPoint as smallint) as reorder_point
-            , cast(StandardCost as decimal(19, 4)) as standard_cost
-            , cast(ListPrice as decimal(19, 4)) as list_price
+            , cast(StandardCost as float) as standard_cost
+            , cast(ListPrice as float) as list_price
             , cast(Size as string) as product_size
             , cast(SizeUnitMeasureCode as string) as size_unit_measure_code
             , cast(WeightUnitMeasureCode as string) as weight_unit_measure_code
-            , cast(Weight as decimal(8, 2)) as weight
+            , cast(Weight as float) as weight
             , cast(DaysToManufacture as int) as days_to_manufacture
             , case
                 when ProductLine = 'R' then 'Road'
