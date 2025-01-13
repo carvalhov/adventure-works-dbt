@@ -6,25 +6,85 @@ sources:
     schema: production
     tables:
       - name: billofmaterials
-        description: Contains information about components required to produce a product.
+        description: Contains details about the bill of materials for the products.
+
+      - name: culture
+        description: Contains data related to different cultures.
+
+      - name: document
+        description: Stores documents related to various products and work orders.
+
+      - name: illustration
+        description: Stores illustrations related to products or documents.
+
+      - name: location
+        description: Contains information about locations.
+
+      - name: product
+        description: Stores details about the products.
+
+      - name: productcategory
+        description: Information about the product categories.
 
       - name: productcosthistory
-        description: Tracks the historical cost information for products.
+        description: Stores historical data about product costs.
+
+      - name: productdescription
+        description: Contains descriptions of products.
+
+      - name: productdocument
+        description: Stores links to documents associated with products.
+
+      - name: productinventory
+        description: Contains inventory details for the products.
 
       - name: productlistpricehistory
-        description: Tracks the historical list prices for products.
+        description: Stores historical data for product list prices.
+
+      - name: productmodel
+        description: Details about product models.
+
+      - name: productmodelillustration
+        description: Contains illustrations related to product models.
+
+      - name: productmodelproductdescriptionculture
+        description: Stores product model descriptions based on different cultures.
+
+      - name: productphoto
+        description: Contains product photos.
+
+      - name: productproductphoto
+        description: Links products to their respective photos.
+
+      - name: productreview
+        description: Contains reviews for products.
+
+      - name: productsubcategory
+        description: Information about product subcategories.
 
       - name: scrapreason
-        description: Stores reasons for scrapping materials or products during production.
+        description: Stores the reasons for scrapping products.
 
       - name: transactionhistory
-        description: Records inventory transactions, including adjustments, receipts, and shipments.
+        description: Stores historical transaction data.
 
       - name: transactionhistoryarchive
-        description: Archived inventory transaction records for historical reference.
+        description: Archived transaction history.
+
+      - name: unitmeasure
+        description: Contains unit measure data for products.
+
+      - name: vproductanddescription
+        description: A view that contains product and description data.
+
+      - name: vproductmodelcatalogdescription
+        description: A view with product model catalog descriptions.
+
+      - name: vproductmodelinstructions
+        description: Contains instructions for product models.
 
       - name: workorder
-        description: Tracks production orders and their statuses.
+        description: Stores work order information.
 
       - name: workorderrouting
-        description: Details the sequence of operations required to complete a production work order.
+        description: Stores routing information for work orders.
