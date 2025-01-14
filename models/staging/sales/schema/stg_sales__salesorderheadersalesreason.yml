@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_sales__salesorderheadersalesreason
+    description: Lookup table of customer purchase reasons
+    columns:
+      - name: pk_sales_order
+        description: Primary key of sales orders.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: fk_sales_reason
+        description: Primary key of the sales reason table.
+        data_tests:
+          - not_null
+
+      - name: dt_motified_at
+        description: Date of of the order was modified.
+
+      - name: dt_extracted_at
+        description: timestamp of the extraction date.

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int_sales__customer_data
+  - name: int_customers_info
     description: Intermediate table that combines customer data with related information from person, store, and territory tables.
     columns:
       - name: pk_customer_id

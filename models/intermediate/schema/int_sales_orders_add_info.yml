@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: int_sales_orders_add_info
+    description: Intermediate table that combines sales orders with related info about the sales reason.
+    columns:
+      - name: pk_sales_order
+        description: Primary key of sales orders.
+
+      - name: fk_sales_reason
+        description: Primary key of the sales reason table.
+
+      - name: sales_reason_name
+        description: Name of the reason of the sale like price, promotion, quality, etc.
+
+      - name: sales_reason_type
+        description: A big group of the type of sales reason, like marketing that includes some sales reasons (Tv, events, etc).
+
+      - name: dt_modified_at
+        description: Date of of the order was modified.
+
+      - name: dt_extracted_at
+        description: timestamp of the extraction date.
