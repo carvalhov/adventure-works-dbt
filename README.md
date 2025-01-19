@@ -1,4 +1,4 @@
-Esse projeto trata-se da etapa de transformação de um pipeline de dados. Os dados tratam principalmente das vendas (sales) da empresa 'Adventure Works' que foram extraídos do postgres através do meltano e carregados na plataforma de dados snowflake-gcp. O projeto utiliza a divisão clássica do [dbt](https://docs.getdbt.com/docs/build/documentation) em layers sendo staging, intermediate e marts. 
+Esse projeto trata-se da etapa de transformação de um pipeline de dados. Os dados tratam principalmente das vendas (sales) da empresa 'Adventure Works' que foram extraídos do postgres através do meltano e carregados na plataforma de dados snowflake-gcp. O projeto utiliza a divisão clássica do [dbt](https://docs.getdbt.com/docs/build/documentation) em layers sendo staging, intermediate e marts.
 
 # Transforming with dbt
 ## 1. Clone this repository
@@ -22,12 +22,12 @@ pip install -r requeriments.txt
 
 ## 4. Configure suas credenciais criando um arquivo '.env'
 
-Nessa etapa, deve-se crir um arquivo .env realizando a declaração de credenciais para assegurar a proteção de dados do cliente. 
+Nessa etapa, deve-se crir um arquivo .env realizando a declaração de credenciais para assegurar a proteção de dados do cliente.
 
 
 ## 5. Verifique se as conexões estão adequadas
 
-Tente usar o seguinte comando para verficar a conexão: 
+Tente usar o seguinte comando para verficar a conexão:
 
 ```bash
 dbt debug
@@ -39,7 +39,7 @@ dbt debug
 - dbt build -m +model (Para todos os modelos que estão associados a aquele modelo)
 - dbt run
 - dbt run -m model
-- dbt run -m +model 
+- dbt run -m +model
 - dbt test
 - dbt test --select model
 
