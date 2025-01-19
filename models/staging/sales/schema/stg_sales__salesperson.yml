@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_sales__salesperson
+    description: Contains information about sales representatives, their territories, quotas, and performance metrics.
+    columns:
+      - name: pk_salesperson
+        description: Primary key for SalesPerson records. Foreign key to Employee.BusinessEntityID.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: territory_id
+        description: Territory currently assigned to the salesperson. Foreign key to SalesTerritory.SalesTerritoryID.
+
+      - name: vl_sales_quota
+        description: Projected yearly sales.
+
+      - name: vl_bonus
+        description: Bonus due if quota is met. Default value is 0.00.
+
+      - name: vl_comission_percent
+        description: Commission percent received per sale. Default value is 0.00.
+
+      - name: sales_ytd
+        description: Sales total year to date. Default value is 0.00.
+
+      - name: vl_sales_last_year
+        description: Sales total of the previous year. Default value is 0.00.
+
+      - name: rowguid
+        description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+
+      - name: modified_date
+        description: Date and time the record was last updated. Default value is the current system date (getdate()).
+
+      - name: dt_extracted_at
+        description: timestamp of the extraction date.

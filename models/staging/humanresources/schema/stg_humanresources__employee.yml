@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_humanresources__employee
+    description: Table containing employee information for AdventureWorks, including details on salary, department, and corporate hierarchy.
+    columns:
+      - name: pk_employee
+        description: Primary key for Employee records. Foreign key to BusinessEntity.BusinessEntityID.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: national_id_number
+        description: Unique national identification number, such as a social security number.
+
+      - name: login_id
+        description: Network login of the employee.
+
+      - name: organization_node
+        description: Hierarchy location of the employee within the corporate structure.
+
+      - name: organization_level
+        description: The depth of the employee in the corporate hierarchy, computed from OrganizationNode.GetLevel().
+
+      - name: job_title
+        description: Work title of the employee, such as Buyer or Sales Representative.
+
+      - name: birth_date
+        description: Date of birth of the employee.
+
+      - name: marital_status
+        description: Marital status of the employee. M = Married, S = Single.
+        data_tests:
+          - accepted_values:
+              values: ['Married', 'Single']
+
+      - name: gender
+        description: Gender of the employee. M = Male, F = Female.
+        data_tests:
+          - accepted_values:
+              values: ['Male', 'Female']
+
+      - name: hire_date
+        description: Date the employee was hired.
+
+      - name: is_salaried
+        description: Indicates if the employee is salaried (1 = Yes, 0 = No). Defalt is 0.
+
+      - name: vacation_hours
+        description: Number of available vacation hours. Default is 0.
+
+      - name: sick_leave_hours
+        description: Number of available sick leave hours. Default is 0.
+
+      - name: is_active
+        description: Indicates if the employee is currently active (1 = Active, 0 = Inactive). Defalt is 0.
+
+      - name: row_guid
+        description: Unique identifier for the record used for replication.
+
+      - name: dt_modified_at
+        description: Date and time the record was last updated. Default - current system date
+
+      - name: dt_extracted_at
+        description: timestamp of the extraction date.

@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: dim_salesperson
+    description: intermediate that realizes the joining between the data of employees and salesperson.
+    columns:
+      - name: pk_salesperson
+        description: Primary key for SalesPerson records. Foreign key to Employee.BusinessEntityID.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: territory_id
+        description: Territory currently assigned to the salesperson. Foreign key to SalesTerritory.SalesTerritoryID.
+
+      - name: national_id_number
+        description: Unique national identification number of the employee, such as a social security number.
+
+      - name: hire_date
+        description: Date the employee was hired.
+
+      - name: birth_date
+        description: Date of birth of the employee.
+
+      - name: organization_node
+        description: Hierarchy location of the employee within the corporate structure.
+
+      - name: organization_level
+        description: The depth of the employee in the corporate hierarchy, computed from OrganizationNode.GetLevel().
+
+      - name: job_title
+        description: Work title of the employee, such as Buyer or Sales Representative.
+
+      - name: gender
+        description: Gender of the employee. M = Male, F = Female.
+        data_tests:
+          - accepted_values:
+              values: ['Male', 'Female']
+
+      - name: vacation_hours
+        description: Number of available vacation hours. Default is 0.
+
+      - name: is_salaried
+        description: Indicates if the employee is salaried (1 = Yes, 0 = No). Default is 0.
+
+      - name: sick_leave_hours
+        description: Number of available sick leave hours. Default is 0.
+
+      - name: is_active
+        description: Indicates if the employee is currently active (1 = Active, 0 = Inactive). Default is 0.
+
+      - name: vl_sales_quota
+        description: Projected yearly sales for the salesperson.
+
+      - name: vl_bonus
+        description: Bonus due if the salesperson's quota is met. Default value is 0.00.
+
+      - name: vl_comission_percent
+        description: Commission percent received per sale. Default value is 0.00.
+
+      - name: vl_total_sales_ytd
+        description: Total sales made by the salesperson year-to-date. Default value is 0.00.
+
+      - name: vl_sales_last_year
+        description: Total sales made by the salesperson in the previous year. Default value is 0.00.
+
+      - name: row_guid
+        description: Unique identifier for the record used for replication.
+
+      - name: dt_modified_at
+        description: Date and time the record was last updated. Default is the current system date.
+
+      - name: dt_extracted_at
+        description: Timestamp of the data extraction.
