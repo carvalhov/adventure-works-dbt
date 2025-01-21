@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: dim_city
+    description: >
+      Marts table with street address information for customers, employees, and vendors.
+      This model is part of the People module from AdventureWorks Person schema.
+
+    columns:
+      - name: pk_address
+        description: Primary key for Address records.
+
+      - name: address_line_1
+        description: First street address line.
+
+      - name: address_line_2
+        description: Second street address line.
+
+      - name: city_name
+        description: Name of the city.
+
+      - name: fk_state_province
+        description: Foreign key to StateProvince table. Unique identification number for the state or province.
+
+      - name: postal_code
+        description: Postal code for the street address.
+
+      - name: spatial_location
+        description: Latitude and longitude of this address.
+
+      - name: row_guid
+        description: ROWGUIDCOL number uniquely identifying the record. Used to support merge replication sample.
+
+      - name: dt_modified_at
+        description: Date and time the record was last updated.
+
+      - name: dt_extracted_at
+        description: Timestamp indicating when the data was extracted from the source system.
