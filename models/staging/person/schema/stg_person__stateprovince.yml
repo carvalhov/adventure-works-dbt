@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  - name: dim_state
+  - name: stg_person__stateprovince
     description: >
-      Martes talble with state and province data.
+      State and province lookup table.
       This model is part of the People module from AdventureWorks Person schema.
     columns:
       - name: pk_state_province
