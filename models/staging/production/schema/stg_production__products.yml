@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_production__product
+  - name: stg_production__products
     description: Table containing product information for AdventureWorks, including details on manufacturing, inventory, and sales.
     columns:
       - name: pk_product_id

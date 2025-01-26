@@ -24,6 +24,22 @@ pip install -r requeriments.txt
 
 Nessa etapa, deve-se crir um arquivo .env realizando a declaração de credenciais para assegurar a proteção de dados do cliente.
 
+Exemplo:
+
+export DBT_DEFAULT_TARGET="dev";
+
+export DBT_SNOWFLAKE_ACCOUNT_ID='account_id'
+export DBT_SNOWFLAKE_DATABASE='database_name'
+export DBT_SNOWFLAKE_PASSWORD='password'
+export DBT_SNOWFLAKE_ROLE='role_dbt'
+export DBT_SNOWFLAKE_USER='username'
+export DBT_SNOWFLAKE_WAREHOUSE='COMPUTE_WH'
+
+export DBT_SNOWFLAKE_SCHEMA='dev_firstname_lastname'
+
+# credentials for prod
+export DBT_SNOWFLAKE_DATABASE_PROD='prod_database_name'
+export DBT_SNOWFLAKE_SCHEMA_PROD='prod_schema'
 
 ## 5. Verifique se as conexões estão adequadas
 
@@ -43,6 +59,25 @@ dbt debug
 - dbt test
 - dbt test --select model
 
+## 7. Direcionando modelos para prod
+É importante configurar o dbt_project.yml para operacionar a materialização de forma diferente nos ambientes
+'dev' e 'prod', quando for dev (default) todos os modelos irão para o Snowflake como tabela, enquanto quando
+prod, apenas os modelos na marts serão materializados como table, enquanto o restante irá como 'ephemeral'.
+
+```bash
+models:
+  adventure_works_dbt:
+    staging:
+      +materialized: "{{ 'table' if target.name == 'dev' else 'ephemeral' }}"
+    intermediate:
+      +materialized: "{{ 'table' if target.name == 'dev' else 'ephemeral' }}"
+    marts:
+      +materialized: "{{ 'table' }}"
+```
+
+Ao final, os comandos precisam ser direcionados para prod usando o target:
+Por exemplo, o comando dbt build deve ser utilizado como:
+- dbt build --target prod
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
