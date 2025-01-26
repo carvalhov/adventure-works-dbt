@@ -1,7 +1,7 @@
 with
     source_staging as (
         select *
-        from {{ ref('stg_person__countryregion') }}
+        from {{ ref('stg_person__stateprovince') }}
     )
 
 select *
