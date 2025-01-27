@@ -40,6 +40,14 @@ models:
               to: ref('dim_territory')
               field: pk_territory
 
+      - name: fk_country_region
+        description: ISO standard code that serves as the primary key for countries and regions.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_country')
+              field: pk_country_region
+
       - name: fk_bill_to_city
         description: Customer billing address. Foreign key to Address table.
         data_tests:

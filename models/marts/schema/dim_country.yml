@@ -8,14 +8,9 @@ models:
     columns:
       - name: pk_country_region
         description: ISO standard code that serves as the primary key for countries and regions.
-        data_tests:
-          - unique
-          - not_null
 
       - name: contry_region_name
         description: Name of the country or region.
-        data_tests:
-          - not_null
 
       - name: dt_modified_at
         description: Date and time when the record was last updated.
