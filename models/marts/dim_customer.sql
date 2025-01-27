@@ -6,11 +6,11 @@ with
 
     , marts as (
         select
-            pk_customer_id
-            , fk_person_id
-            , fk_store_id
-            , fk_territory_id
-            , fk_sales_person_id
+            pk_customer_id as pk_customer
+            , fk_person_id as fk_person
+            , fk_store_id as fk_store
+            , fk_territory_id as fk_territory
+            , fk_sales_person_id as fk_salesperson
             , dt_modified_at
             , person_type
             , person_name

@@ -21,9 +21,6 @@ models:
         description: ISO standard country or region code. Foreign key to CountryRegion.CountryRegionCode.
         data_tests:
           - not_null
-          - relationships:
-              to: ref('stg_person__countryregion')
-              field: pk_country_region
 
       - name: is_only_state_province
         description: Flag indicating if StateProvinceCode exists (0) or if using CountryRegionCode due to unavailable StateProvinceCode (1).

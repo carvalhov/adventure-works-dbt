@@ -25,7 +25,7 @@ pip install -r requeriments.txt
 Nessa etapa, deve-se crir um arquivo .env realizando a declaração de credenciais para assegurar a proteção de dados do cliente.
 
 Exemplo:
-
+```bash
 export DBT_DEFAULT_TARGET="dev";
 
 export DBT_SNOWFLAKE_ACCOUNT_ID='account_id'
@@ -34,13 +34,12 @@ export DBT_SNOWFLAKE_PASSWORD='password'
 export DBT_SNOWFLAKE_ROLE='role_dbt'
 export DBT_SNOWFLAKE_USER='username'
 export DBT_SNOWFLAKE_WAREHOUSE='COMPUTE_WH'
-
 export DBT_SNOWFLAKE_SCHEMA='dev_firstname_lastname'
 
 # credentials for prod
 export DBT_SNOWFLAKE_DATABASE_PROD='prod_database_name'
 export DBT_SNOWFLAKE_SCHEMA_PROD='prod_schema'
-
+```
 ## 5. Verifique se as conexões estão adequadas
 
 Tente usar o seguinte comando para verficar a conexão:

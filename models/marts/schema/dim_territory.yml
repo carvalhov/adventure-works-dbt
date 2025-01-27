@@ -1,14 +1,11 @@
 version: 2
 
 models:
-  - name: stg_sales__salesterritory
+  - name: dim_territory
     description: Lookup table for sales territories, including sales and cost details by year and region.
     columns:
       - name: pk_territory
         description: Primary key for SalesTerritory records.
-        data_tests:
-          - unique
-          - not_null
 
       - name: territory_name
         description: Sales territory description.

@@ -6,9 +6,9 @@ with
 
     , casting as (
         select
-            cast(ProductID as int) as pk_product_id
-            , cast(ProductSubcategoryID as int) as fk_product_subcategory_id
-            , cast(ProductModelID as int) as fk_product_model_id
+            cast(ProductID as int) as pk_product
+            , cast(ProductSubcategoryID as int) as fk_product_subcategory
+            , cast(ProductModelID as int) as fk_product_model
             , cast(SellStartDate as date) as sell_start_date
             , cast(SellEndDate as date) as sell_end_date
             , cast(Name as string) as product_name
@@ -26,23 +26,23 @@ with
             , cast(Weight as float) as weight
             , cast(DaysToManufacture as int) as days_to_manufacture
             , case
-                when ProductLine = 'R' then 'Road'
-                when ProductLine = 'M' then 'Mountain'
-                when ProductLine = 'T' then 'Touring'
-                when ProductLine = 'S' then 'Standard'
-                else ProductLine
+                when trim(ProductLine) = 'R' then 'Road'
+                when trim(ProductLine) = 'M' then 'Mountain'
+                when trim(ProductLine) = 'T' then 'Touring'
+                when trim(ProductLine) = 'S' then 'Standard'
+                when trim(Style) is null then '-'
             end as product_line_description
             , case
-                when Class = 'H' then 'High'
-                when Class = 'M' then 'Medium'
-                when Class = 'L' then 'Low'
-                else Class
+                when trim(Class) = 'H' then 'High'
+                when trim(Class) = 'M' then 'Medium'
+                when trim(Class) = 'L' then 'Low'
+                when trim(Style) is null then '-'
             end as product_class_description
             , case
-                when Style = 'W' then 'Womens'
-                when Style = 'M' then 'Mens'
-                when Style = 'U' then 'Universal'
-                else Style
+                when trim(Style) = 'W' then 'Womens'
+                when trim(Style) = 'M' then 'Mens'
+                when trim(Style) = 'U' then 'Universal'
+                when trim(Style) is null then '-'
             end as product_style_description
             , cast(DiscontinuedDate as date) as discontinued_date
             , cast(rowguid as string) as row_guid

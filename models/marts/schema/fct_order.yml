@@ -1,36 +1,60 @@
 version: 2
 
 models:
-  - name: dim_sales_date
+  - name: fct_order
     description: >
-      Marts sales order information from the Sales module of AdventureWorks.
+      Fact table with sales order information from the Sales module of AdventureWorks.
     columns:
       - name: pk_sales_order
         description: Primary key for sales order records.
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('dim_order_details')
+              field: fk_sales_order
 
       - name: fk_customer
         description: Customer identification number. Foreign key to Customer table.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: pk_customer
 
-      - name: fk_sales_person
+      - name: fk_salesperson
         description: Sales person who created the sales order. Foreign key to SalesPerson table.
+        data_tests:
+          - not_null
+          - relationships:
+              config:
+                where: 'fk_salesperson != 0'
+              to: ref('dim_salesperson')
+              field: pk_salesperson
 
-      - name: fk_sales_territory
+      - name: fk_territory
         description: Territory in which the sale was made. Foreign key to SalesTerritory table.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_territory')
+              field: pk_territory
 
-      - name: fk_bill_to_address
+      - name: fk_bill_to_city
         description: Customer billing address. Foreign key to Address table.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_city')
+              field: pk_address
 
-      - name: fk_ship_to_address
+      - name: fk_ship_to_city
         description: Customer shipping address. Foreign key to Address table.
-
-      - name: fk_ship_method
-        description: Shipping method. Foreign key to ShipMethod table.
-
-      - name: fk_credit_card
-        description: Credit card identification number. Foreign key to CreditCard table.
-
-      - name: fk_currency_rate
-        description: Currency exchange rate used. Foreign key to CurrencyRate table.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_city')
+              field: pk_address
 
       - name: dt_order
         description: Date the sales order was created.
