@@ -40,8 +40,9 @@ with
             , dim_customer.pk_customer as fk_customer
             , coalesce(dim_salesperson.pk_salesperson, stg_salesorderheader.fk_salesperson) as fk_salesperson
             , dim_order_details.fk_product
-            , dim_sales_reason.fk_sales_reason
+            , coalesce(dim_sales_reason.fk_sales_reason, 0) as fk_sales_reason
             , dim_territory.pk_territory as fk_territory
+            , dim_territory.fk_country_region
             , bill_to_city.pk_address as fk_bill_to_city
             , ship_to_city.pk_address as fk_ship_to_city
             , dim_dates.date_day as dt_order
@@ -55,6 +56,12 @@ with
             , stg_salesorderheader.purchase_order_number
             , stg_salesorderheader.account_number
             , stg_salesorderheader.credit_card_approval_code
+            , case
+                when stg_salesorderheader.credit_card_approval_code is null
+                    then 'Others'
+                when stg_salesorderheader.credit_card_approval_code is not null
+                    then  'Credit Card'
+            end as payment_type
             , stg_salesorderheader.subtotal
             , stg_salesorderheader.tax_amount
             , stg_salesorderheader.freight

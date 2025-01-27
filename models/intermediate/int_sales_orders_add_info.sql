@@ -13,7 +13,12 @@ with
         select
             sales_order.pk_sales_order as pk_sales_order
             , sales_reason.pk_sales_reason as fk_sales_reason
-            , sales_reason.sales_reason_name
+            , case
+                when sales_reason.pk_sales_reason is not null
+                    then sales_reason.sales_reason_name
+                when sales_reason.pk_sales_reason is not null
+                    then 'Other'
+            end as sales_reason_name
             , sales_reason.sales_reason_type
             , sales_order.dt_modified_at
             , sales_order.dt_extracted_at

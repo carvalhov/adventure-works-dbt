@@ -4,5 +4,14 @@ with
         from {{ ref('stg_person__countryregion') }}
     )
 
+    , dim_country as (
+        select
+            pk_country_region
+            , contry_region_name
+            , dt_modified_at
+            , dt_extracted_at
+        from source_staging
+    )
+
 select *
-from source_staging
+from dim_country
