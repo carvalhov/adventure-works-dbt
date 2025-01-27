@@ -7,7 +7,7 @@ with
         select
             cast(SalesOrderID as integer) as pk_sales_order
             , cast(CustomerID as integer) as fk_customer
-            , coalesce(cast(SalesPersonID as integer), 0) as fk_sales_person
+            , coalesce(cast(SalesPersonID as integer), 0) as fk_salesperson
             , cast(TerritoryID as integer) as fk_sales_territory
             , cast(BillToAddressID as integer) as fk_bill_to_address
             , cast(ShipToAddressID as integer) as fk_ship_to_address

@@ -34,7 +34,7 @@ with
         left join source_store as ss
             on sc.fk_store_id = ss.pk_store_business_entity
         left join source_territory as st
-            on sc.fk_territory_id = st.pk_territory_id
+            on sc.fk_territory_id = st.pk_territory
     )
 
 select *

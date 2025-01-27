@@ -6,7 +6,7 @@ with
 
     , casting as (
         select
-            cast(TerritoryID as int) as pk_territory_id
+            cast(TerritoryID as int) as pk_territory
             , cast(Name as string) as territory_name
             , cast(CountryRegionCode as string) as fk_country_region_code
             , cast("GROUP" as string) as territory_group

@@ -1,16 +1,19 @@
 version: 2
 
 models:
-  - name: dim_products
-    description: Final mart summarizing products informations as price, descriptions, etc.
+  - name: stg_production__product
+    description: Table containing product information for AdventureWorks, including details on manufacturing, inventory, and sales.
     columns:
-      - name: pk_product_id
+      - name: pk_product
         description: Primary key for Product records.
+        data_tests:
+          - unique
+          - not_null
 
-      - name: fk_product_subcategory_id
+      - name: fk_product_subcategory
         description: Foreign key referencing the subcategory of the product.
 
-      - name: fk_product_model_id
+      - name: fk_product_model
         description: Foreign key referencing the model of the product.
 
       - name: sell_start_date
@@ -24,6 +27,8 @@ models:
 
       - name: product_number
         description: Unique product identification number.
+        data_tests:
+          - unique
 
       - name: is_manufactured
         description: Indicates if the product is manufactured in-house (1 = Yes, 0 = No).
@@ -63,12 +68,21 @@ models:
 
       - name: product_line_description
         description: Product line description (e.g., Road, Mountain, Touring, Standard).
+        data_tests:
+          - accepted_values:
+              values: ['Road', 'Mountain', 'Touring', 'Standard', '-']
 
       - name: product_class_description
         description: Classification of the product (e.g., High, Medium, Low).
+        data_tests:
+          - accepted_values:
+              values: ['High', 'Medium', 'Low', '-']
 
       - name: product_style_description
         description: Style of the product (e.g., Womens, Mens, Universal).
+        data_tests:
+          - accepted_values:
+              values: ['Womens', 'Mens', 'Universal', '-']
 
       - name: discontinued_date
         description: Date the product was discontinued.
@@ -78,3 +92,4 @@ models:
 
       - name: dt_modified_at
         description: Date and time the record was last updated.
+

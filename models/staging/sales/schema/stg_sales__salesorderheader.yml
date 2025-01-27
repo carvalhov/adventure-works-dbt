@@ -16,7 +16,7 @@ models:
         data_tests:
           - not_null
 
-      - name: fk_sales_person
+      - name: fk_salesperson
         description: Sales person who created the sales order. Foreign key to SalesPerson table.
         data_tests:
           - not_null

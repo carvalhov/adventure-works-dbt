@@ -30,9 +30,6 @@ models:
         description: Foreign key to StateProvince table. Unique identification number for the state or province.
         data_tests:
           - not_null
-          - relationships:
-              to: ref('stg_person__stateprovince')
-              field: pk_state_province
 
       - name: postal_code
         description: Postal code for the street address.

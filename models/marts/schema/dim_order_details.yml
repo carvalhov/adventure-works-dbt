@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: dim_order_details
+    description: >
+      Individual products associated with a specific sales order.
+    columns:
+      - name: pk_sales_order_detail
+        description: Unique identifier for each sales order detail line item.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: fk_sales_order
+        description: Sales order this detail belongs to.
+        data_tests:
+          - not_null
+
+      - name: fk_product
+        description: Product sold to customer.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: pk_product
+
+      - name: fk_special_offer
+        description: Promotional code applied to the product.
+
+      - name: dt_modified_at
+        description: Date and time the record was last updated.
+
+      - name: carrier_tracking_number
+        description: Shipment tracking number supplied by the shipper.
+
+      - name: order_quantity
+        description: Quantity of the product ordered.
+
+      - name: unit_price
+        description: Selling price of a single product.
+
+      - name: unit_price_discount
+        description: Discount amount applied to the unit price.
+
+      - name: order_total_price
+        description: Subtotal for the order. Computed as (UnitPrice * OrderQty) * (1 - UnitPriceDiscount).
+
+      - name: row_guid
+        description: Unique identifier for merge replication.
+
+      - name: dt_extracted_at
+        description: Timestamp indicating when the data was extracted from the source system.

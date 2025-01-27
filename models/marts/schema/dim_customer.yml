@@ -4,19 +4,19 @@ models:
   - name: dim_customer
     description: Final mart summarizing customer data with related person, store, and territory details for reporting purposes.
     columns:
-      - name: pk_customer_id
+      - name: pk_customer
         description: Primary key for the customer records. Unique identifier for each customer.
 
-      - name: fk_person_id
+      - name: fk_person
         description: Foreign key referencing the person associated with the customer.
 
-      - name: fk_store_id
+      - name: fk_store
         description: Foreign key referencing the store associated with the customer.
 
-      - name: fk_territory_id
+      - name: fk_territory
         description: Foreign key referencing the sales territory associated with the customer.
 
-      - name: fk_sales_person_id
+      - name: fk_salesperson
         description: Foreign key referencing the sales person assigned to the store associated with the customer.
 
       - name: dt_modified_at
